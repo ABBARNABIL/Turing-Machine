@@ -32,5 +32,32 @@ FROM @Q7
 '_ R @Q8
 FROM @Q8
 '1 '_ R @I
+NEW "EXO2" 3
+START @I
+END @YES "VALID"
+UNDEFINED @NO "INVALID"
+FROM @I
+'1,'_,'_ '1,'_,'_  R,S,S
+'=,'_,'_ '=,'_,'_  R,S,S @Q1
+FROM @Q1
+'1,'_,'_ '1,'1,'_  R,R,S
+'x,'_,'_ 'x,'_,'_  R,L,S @Q2
+FROM @Q2
+'1,'1,'_ '1,'1,'1  R,S,R
+'_,'1,'_ '_,'1,'_  L,S,L @Q3
+FROM @Q3
+'1|'x, '1,'1 '1|'x,'1,'1  L,S,S
+'=,'1,'1 '=,'1,'1  L,S,S @Q4
+FROM @Q4
+'1,'1,'1|'_ '_,'Y,'_  L,L,S
+'1,'_,'_ '1,'_,'_  S,R,S @Q5
+'_,'_,'_  S,S,S @YES
+FROM @Q5
+'1,'Y,'_ '1,'1,'_  S,R,S
+'1,'_,'_ '1,'_,'_  S,L,L @Q4
+
+
+
+
 
 
