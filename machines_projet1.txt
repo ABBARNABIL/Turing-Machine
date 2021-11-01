@@ -55,8 +55,138 @@ FROM @Q4
 FROM @Q5
 '1,'Y,'_ '1,'1,'_  S,R,S
 '1,'_,'_ '1,'_,'_  S,L,L @Q4
-
-
+NEW "EXO4" 1
+START @I
+END @YES "VALID"
+UNDEFINED @NO "INVALID"
+FROM @I
+'0|'1 L @Q1
+FROM @Q1
+'_ '# R @Q2
+FROM @Q2
+'0|'1|'=|'x R
+'_ L @READB
+FROM @READB
+'1 '_ L @ADDA
+'0 '_ L @DOUBLEL
+FROM @DOUBLEL
+'x '0 R @SHIFT
+'0|'1 L
+FROM @ADDA
+'0|'1 L 
+'x L @READ
+FROM @READ
+'1 'c L @HAVE1
+'0 'c L @HAVE0
+'= L @SKIP
+FROM @SKIP
+'0|'1 L
+'# L @REWRITE
+FROM @HAVE1
+'0|'1|'= L
+'# L @ADD1
+FROM @HAVE0
+'0|'1|'= L
+'# L @ADD0
+FROM @ADD0
+'O|'I L
+'0|'_ 'O R @BACK0
+'1 'I R @BACK0
+FROM @BACK0
+'0|'1|'O|'I|'#|'= R
+'c '0 L @READ
+FROM @ADD1
+'_|'0 'I R @BACK1
+'I|'O L
+'1 'O L @CARRY
+FROM @CARRY
+'1 '0 L
+'_|'0 '1 R @BACK1
+FROM @BACK1
+'#|'1|'0|'I|'O|'= R 
+'c '1 L @READ
+FROM @REWRITE
+'0|'1 L
+'I '1 L
+'O '0 L
+'_ R @DOUBLE
+FROM @DOUBLE
+'0|'1|'#|'= R
+'x '0 R @SHIFT
+FROM @SHIFT
+'_ L @TIDY
+'1 'x R @SHIFT1
+'0 'x R @SHIFT0
+FROM @SHIFT1
+'1 R
+'0 '1 R @SHIFT0
+'_ '1 R @Q2
+FROM @SHIFT0
+'0 R
+'1 '0 R @SHIFT1
+'_ '0 R @Q2
+FROM @TIDY
+'0|'1 '_ L
+'= '_ L @COMPARE
+FROM @COMPARE
+'1 'V L @1_1
+'0 'V L @0_1
+'# L @1
+FROM @1_1
+'0|'1 L
+'# L @1_2
+FROM @1_2
+'V L
+'1 'V R @V2
+FROM @V2
+'0|'1|'V R
+'# R @V3
+FROM @V3
+'0|'1 R
+'V L @COMPARE
+FROM @0_1
+'0|'1 L
+'# L @0_2
+FROM @0_2
+'V L
+'0 'V R @V2
+FROM @1
+'V L
+'_ L @YES
+NEW "EXO5" 1
+START @I
+END @YES "VALID"
+UNDEFINED @NO "INVALID"
+FROM @I
+'1 R
+'= R @Q1
+FROM @Q1
+'1 R
+'x R @Q2
+'Y L @Q5
+FROM @Q2
+'1 R
+'_ L @Q3
+FROM @Q3
+'1 '_ L @Q4
+'x S @YES
+FROM @Q4
+'1 L
+'x L @Q5
+FROM @Q5
+'1 'Y L @Q6
+'= R @Q6R
+FROM @Q6R
+'Y '1 R
+'x R @Q2
+FROM @Q6
+'1 L
+'= L @Q7
+FROM @Q7
+'1 L
+'_ R @Q8
+FROM @Q8
+'1 '_ R @I
 
 
 
