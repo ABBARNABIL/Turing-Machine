@@ -14,7 +14,7 @@ FROM @Q2
 '_ L @Q3
 FROM @Q3
 '1 '_ L @Q4
-'x S @YES
+'x L @Q9
 FROM @Q4
 '1 L
 'x L @Q5
@@ -32,6 +32,11 @@ FROM @Q7
 '_ R @Q8
 FROM @Q8
 '1 '_ R @I
+FROM @Q9
+'1 L
+'= L @Q10
+FROM @Q10
+'_ S @YES
 NEW "EXO2" 3
 START @I
 END @YES "VALID"
@@ -97,9 +102,11 @@ FROM @CARRY
 '_,'c,'1 '_,'c,'0  S,S,L
 '_,'c,'_|'0 '_,'c,'1  S,S,R @BACK1
 FROM @BACK1
-'_,'c,'0|'1|'_|'O|'I '_,'1,'0|'1|'_|'O|'I  S,L,S @READ
+'_,'c,'1|'_|'O|'I '_,'1,'1|'_|'O|'I  S,L,S @READ
+'_,'c,'0 '_,'1,'0  S,L,R @READ
 FROM @BACK0
-'_,'c,'0|'1|'_|'O|'I '_,'0,'0|'1|'_|'O|'I  S,L,S @READ
+'_,'c,'0|'_|'O|'I '_,'0,'0|'_|'O|'I  S,L,S @READ
+'_,'c,'1 '_,'0,'1  S,L,S @READ
 FROM @REWRITE
 '_,'1,'I|'O|'0 '_,'1,'1|'0|'0  S,R,R
 '_,'0,'I|'O|'0 '_,'0,'1|'0|'0  S,R,R
