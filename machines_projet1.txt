@@ -97,13 +97,15 @@ FROM @ADD1
 FROM @ADD0
 '_,'c,'I|'O '_,'c,'I|'O  S,S,L
 '_,'c,'_|'0 '_,'c,'O  S,S,L @BACK0
-'_,'c,'1 '_,'c,'I  S,S,S @BACK0
+'_,'c,'1 '_,'c,'I  S,S,L @BACK0
 FROM @CARRY
 '_,'c,'1 '_,'c,'0  S,S,L
 '_,'c,'_|'0 '_,'c,'1  S,S,R @BACK1
 FROM @BACK1
 '_,'c,'1|'_|'O|'I '_,'1,'1|'_|'O|'I  S,L,S @READ
-'_,'c,'0 '_,'1,'0  S,L,R @READ
+'_,'1,'1|'_|'O|'I '_,'1,'1|'_|'O|'I  S,L,S @READ
+'_,'0,'1|'_|'O|'I '_,'0,'1|'_|'O|'I  S,L,S @READ
+'_,'c|'1|'0,'0 '_,'c|'1|'0,'0  S,S,R 
 FROM @BACK0
 '_,'c,'0|'_|'O|'I '_,'0,'0|'_|'O|'I  S,L,S @READ
 '_,'c,'1 '_,'0,'1  S,L,S @READ
