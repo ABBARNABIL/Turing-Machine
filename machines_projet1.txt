@@ -246,7 +246,7 @@ FROM @Q2
 '_ L @Q3
 FROM @Q3
 '1 '_ L @Q4
-'x S @YES
+'x L @Q9
 FROM @Q4
 '1 L
 'x L @Q5
@@ -264,7 +264,8 @@ FROM @Q7
 '_ R @Q8
 FROM @Q8
 '1 '_ R @I
-
-
-
-
+FROM @Q9
+'1 L
+'= L @Q10
+FROM @Q10
+'_ S @YES
