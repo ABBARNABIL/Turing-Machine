@@ -2,9 +2,9 @@
 name: Preflight
 
 on:
-  - pull_request
-  - push
-  - workflow_dispatch:
+  pull_request
+  push
+  workflow_dispatch:
 
 jobs:
   preflight-job:
